@@ -3,16 +3,16 @@ namespace Codyssi2024;
 public abstract class BasePart
 {
     private readonly int _day;
-    private readonly int _part;
     private readonly bool _test;
 
     public BasePart(int day,int part, bool test = false)
     {
         _day = day;
         _test = test;
-        _part = part;
 
-        Console.WriteLine($"Running day {_day} part {_part}{(_test ? " example" : "")}");
+        Console.WriteLine($"Running day {_day} part {part}{(_test ? " example" : "")}");
+        // ReSharper disable once VirtualMemberCallInConstructor
+        Console.WriteLine(Run());
     }
 
     protected string[] Input()
@@ -37,5 +37,5 @@ public abstract class BasePart
         return Helpers.LoadInputFile(filename).ToCharArray();
     }
 
-    public abstract void Run();
+    public abstract string Run();
 }

@@ -2,7 +2,7 @@ namespace Codyssi2024.Day1;
 
 public class Part2(): BasePart(1,2)
 {
-    public override void Run()
+    public override string Run()
     {
         var input = Input().Select(int.Parse).ToList();
         const int vouchers = 20;
@@ -13,6 +13,6 @@ public class Part2(): BasePart(1,2)
             input.Remove(max);
         }
 
-        Console.WriteLine(input.Sum());
+        return input.Sum().ToString();
     }
 }
