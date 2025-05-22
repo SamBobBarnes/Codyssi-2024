@@ -4,9 +4,23 @@ public class Part2() : BasePart(2,2)
 {
     public override string Run()
     {
-        //var input = Input();
-        //var input = InputChars();
+        var input = Input().Select((l, i) => (Index: i+1,Value: l == "TRUE")).ToArray();
 
-        return 0.ToString();
+        var total = 0;
+        var andGate = true;
+        for(int i = 0; i < input.Length; i+=2)
+        {
+            if (andGate)
+            {
+                total += input[i].Value && input[i + 1].Value ? 1 : 0;
+            }
+            else
+            {
+                total += input[i].Value || input[i + 1].Value ? 1 : 0;
+            }
+            andGate = !andGate;
+        }
+
+        return total.ToString();
     }
 }
