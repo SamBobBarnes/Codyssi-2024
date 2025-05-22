@@ -1,6 +1,6 @@
 namespace Codyssi2024.DayX;
 
-public class PartY() : BasePart(X,Y)
+public class PartY() : BasePart(X,Y,true)
 {
     public override string Run()
     {
