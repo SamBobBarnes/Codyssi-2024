@@ -4,7 +4,7 @@ public class Helpers
 {
     public static string LoadInputFile(string fileName)
     {
-        string path = Path.Combine(Directory.GetCurrentDirectory(),"../../../../inputs", fileName);
+        string path = Path.Combine(Directory.GetCurrentDirectory(),"../../../Inputs", fileName);
         if (!File.Exists(path))
         {
             File.Create(path).Close();
