@@ -4,6 +4,8 @@ public class Part1(): BasePart(1,1)
 {
     public override void Run()
     {
-        Console.WriteLine(InputChars());
+        var input = Input().Select(int.Parse).ToList();
+
+        Console.WriteLine(input.Sum());
     }
 }

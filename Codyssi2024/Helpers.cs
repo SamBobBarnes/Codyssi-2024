@@ -8,6 +8,7 @@ public class Helpers
         if (!File.Exists(path))
         {
             File.Create(path).Close();
+            File.WriteAllText(path, "Replace me with your input");
         }
         return File.ReadAllText(path);
     }

@@ -23,7 +23,7 @@ public abstract class BasePart
             filename += "_test";
         }
         filename += ".txt";
-        return Helpers.LoadInputFile(filename).Split(Environment.NewLine);
+        return Helpers.LoadInputFile(filename).Split("\n");
     }
 
     protected char[] InputChars()
