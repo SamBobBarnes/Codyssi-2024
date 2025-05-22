@@ -4,9 +4,9 @@ public class Part1() : BasePart(2,1)
 {
     public override string Run()
     {
-        //var input = Input();
-        //var input = InputChars();
+        var input = Input().Select((l, i) => (Index: i+1,Value: l == "TRUE"))
+            .Where(s => s.Value).ToArray();
 
-        return 0.ToString();
+        return input.Sum(x => x.Index).ToString();
     }
 }
