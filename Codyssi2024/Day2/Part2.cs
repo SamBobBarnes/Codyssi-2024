@@ -4,7 +4,7 @@ public class Part2() : BasePart(2,2)
 {
     public override string Run()
     {
-        var input = Input().Select((l, i) => (Index: i+1,Value: l == "TRUE")).ToArray();
+        var input = Input().Select((l, i) => l == "TRUE").ToArray();
 
         var total = 0;
         var andGate = true;
@@ -12,11 +12,11 @@ public class Part2() : BasePart(2,2)
         {
             if (andGate)
             {
-                total += input[i].Value && input[i + 1].Value ? 1 : 0;
+                total += input[i] && input[i + 1] ? 1 : 0;
             }
             else
             {
-                total += input[i].Value || input[i + 1].Value ? 1 : 0;
+                total += input[i] || input[i + 1] ? 1 : 0;
             }
             andGate = !andGate;
         }
