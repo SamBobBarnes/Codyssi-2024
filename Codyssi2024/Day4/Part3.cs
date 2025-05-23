@@ -44,20 +44,23 @@ public class Part3() : BasePart(4, 3)
 
         var start = locations.Find(x => x.Equals("STT"))!;
 
-        var q = new PriorityQueue<(Node node, int dist), int>(Comparer<int>.Create((a, b) => a - b));
-        var distances = new Dictionary<string, int>();
-        foreach (var location in locations)
-            distances.Add(location.Name, int.MaxValue);
-        q.Enqueue((start, 0), 0);
-        while (q.Count > 0)
-        {
-            var (current, dist) = q.Dequeue();
-            if (distances[current.Name] > dist)
-                distances[current.Name] = dist;
-            foreach (var path in current.Links)
-                if (distances[path.Name] > dist + 1)
-                    q.Enqueue((path, dist + 1), dist + 1);
-        }
+            var q = new PriorityQueue<(Node node, int dist), int>(Comparer<int>.Create((a, b) => a - b));
+            var distances = new Dictionary<string, int>();
+            foreach (var location in locations)
+                distances.Add(location.Name, int.MaxValue);
+            distances["STT"] = 0;
+            q.Enqueue((start, 0), 0);
+            while (q.Count > 0)
+            {
+                var (current, dist) = q.Dequeue();
+                foreach (var path in current.Links)
+                    if (distances[path.Name] > dist + 1)
+                    {
+                        distances[path.Name] = dist + 1;
+                        q.Enqueue((path, dist + 1), dist + 1);
+                    }
+            }
+
 
         return distances.Values.Sum().ToString();
     }
